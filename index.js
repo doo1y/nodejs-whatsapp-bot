@@ -19,21 +19,20 @@ const start = async (client = new Client()) => {
 
 	if (!fs.existsSync(filePath)) {
 		fs.writeFileSync(filePath, fs.readFileSync("./utils/format.json", "utf-8"));
+		client.sendText(chatID, "☀️ GOOD MORNING EVERYONE ☀️");
 	}
 
-	client.getAllChats().then((chats) => {
-		for (const chat of chats) {
-			console.log(chat.name, " ", chat.id);
-		}
-	});
+	// client.getAllChats().then((chats) => {
+	// 	for (const chat of chats) {
+	// 		console.log(chat.name, " ", chat.id);
+	// 	}
+	// });
 
 	// Force current session persistance
 	client.onStateChanged((state) => {
 		console.log("[Client] ", state);
 		if (state === "CONFLICT" || state === "UNLAUNCHED") client.forceRefocus();
 	});
-
-	client.sendText(chatID, "DK LAUNCH SUCCESSFUL");
 
 	// Listen to GC messages
 	client.onMessage(async (message) => {

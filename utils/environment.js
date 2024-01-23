@@ -5,16 +5,17 @@ require("dotenv").config();
 module.exports.default = {
 	chat_Id: process.env.CHAT_ID,
 	admins: {
-		mCoast: [
-			process.env.SAHIL_ID,
-			process.env.FABIAN_ID,
+		sysAdmin: [
 			process.env.SYSADMIN_ID,
-		],
-		aZ: [
+			process.env.SAHIL_ID,
 			process.env.ALANTE_ID,
 			process.env.MATTHEW_ID,
-			process.env.SYSADMIN_ID,
+			process.env.FABIAN_ID,
+			process.env.LINDA_ID,
 		],
-		bEI: [process.env.LINDA_ID, process.env.SYSADMIN_ID],
+		mCoast: [process.env.SAHIL_ID],
+		aZ: [process.env.ALANTE_ID, process.env.MATTHEW_ID],
+		paideia: [process.env.FABIAN_ID],
+		bEI: [process.env.LINDA_ID],
 	},
 };
